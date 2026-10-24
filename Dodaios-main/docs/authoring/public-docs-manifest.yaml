@@ -1,0 +1,1077 @@
+version: 1
+language: en
+content_root: docs/product
+page_count: 49
+navigation_principle: reader-journey
+authoring_contract:
+  audience: People using Dodaios, including readers with no software background.
+  style: Lead with the outcome, explain one idea at a time, and prefer short examples and diagrams over large code blocks.
+  safety: Use placeholders for credentials, account identifiers, paths, phone numbers, and personal data. Never copy local secrets or PII into documentation.
+  connections: Every page must explain how its feature connects to the related features named in this manifest.
+generated_reference_policy:
+  policy: link-only
+  description: Generated references remain generated. Reader pages may introduce and link to them, but must not copy or hand-maintain their contents.
+  paths:
+    - docs/commands-reference.md
+    - docs/dodaios-cli-reference.md
+
+pages:
+  - section: Start here
+    section_order: 1
+    order: 1
+    slug: welcome-to-dodaios
+    file: docs/product/start-here/welcome-to-dodaios.md
+    title: Welcome to Dodaios
+    diataxis: explanation
+    summary: See how Dodaios turns your computer into an AI agent, what stays under your control, and where to begin.
+    authoritative_sources:
+      - README.md
+      - AGENTS.md
+      - dodaios/ui/web/frontend/src/components/layout/Sidebar.tsx
+      - dodaios/ui/web/frontend/src/components/layout/MainView.tsx
+    related:
+      - install-dodaios
+      - desktop-app-tour
+      - start-your-first-chat
+    reader_level: beginner
+    maturity: stable
+
+  - section: Start here
+    section_order: 1
+    order: 2
+    slug: install-dodaios
+    file: docs/product/start-here/install-dodaios.md
+    title: Install Dodaios
+    diataxis: howto
+    summary: Install Dodaios on a desktop or headless Linux host, choose an update path, and protect your data during repair.
+    authoritative_sources:
+      - install/README.md
+      - install/install.ps1
+      - install/install.sh
+      - install/installer.py
+      - pyproject.toml
+    related:
+      - first-run-setup
+      - local-ai-providers
+      - platform-support
+      - troubleshooting
+    reader_level: beginner
+    maturity: stable
+
+  - section: Start here
+    section_order: 1
+    order: 3
+    slug: first-run-setup
+    file: docs/product/start-here/first-run-setup.md
+    title: Complete First-Run Setup
+    diataxis: tutorial
+    summary: Your pet explains the app, then you add one key, connect a subscription, pick a wake word and try ten first steps.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/components/onboarding/setup/SetupTour.tsx
+      - dodaios/ui/web/frontend/src/components/onboarding/setup/setupSteps.ts
+      - dodaios/ui/web/frontend/src/components/onboarding/tour/tourSteps.ts
+      - dodaios/ui/web/onboarding_routes.py
+    related:
+      - providers-and-api-keys
+      - audio-and-wake-word
+      - permissions
+      - start-your-first-chat
+    reader_level: beginner
+    maturity: stable
+
+  - section: Start here
+    section_order: 1
+    order: 4
+    slug: desktop-app-tour
+    file: docs/product/start-here/desktop-app-tour.md
+    title: Tour the Desktop App
+    diataxis: explanation
+    summary: Learn where conversations, agents, tools, history, settings, and help live in the desktop app.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/App.tsx
+      - dodaios/ui/web/frontend/src/components/layout/Sidebar.tsx
+      - dodaios/ui/web/frontend/src/components/layout/MainView.tsx
+      - dodaios/ui/web/frontend/src/i18n/locales/en.json
+    related:
+      - start-your-first-chat
+      - chats
+      - find-help-in-the-app
+    reader_level: beginner
+    maturity: stable
+
+  - section: Start here
+    section_order: 1
+    order: 5
+    slug: start-your-first-chat
+    file: docs/product/start-here/start-your-first-chat.md
+    title: Start Your First Chat
+    diataxis: tutorial
+    summary: Send a first message, dictate a draft, add bounded context, and reopen what the app saved.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/ChatsView.tsx
+      - dodaios/ui/web/chats_routes.py
+      - dodaios/state/chat_store.py
+      - dodaios/ui/web/frontend/src/lib/chatsApi.ts
+    related:
+      - chats
+      - dictation
+      - outputs-and-files
+      - sessions-and-run-inspector
+    reader_level: beginner
+    maturity: stable
+
+  - section: Start here
+    section_order: 1
+    order: 6
+    slug: start-your-first-voice-conversation
+    file: docs/product/start-here/start-your-first-voice-conversation.md
+    title: Start Your First Voice Conversation
+    diataxis: tutorial
+    summary: Start a voice conversation, follow each listening and reply state, and end the call safely on desktop or in the browser.
+    authoritative_sources:
+      - dodaios/speech/pipeline.py
+      - dodaios/realtime/session.py
+      - dodaios/ui/web/voice_runtime.py
+      - dodaios/ui/web/frontend/src/components/VoiceIndicator.tsx
+    related:
+      - voice-conversations
+      - audio-and-wake-word
+      - dictation
+      - languages-and-voices
+    reader_level: beginner
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 1
+    slug: chats
+    file: docs/product/everyday-use/chats.md
+    title: Chats
+    diataxis: howto
+    summary: Organize conversations, continue earlier work, add files, and understand how chats relate to sessions and outputs.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/ChatsView.tsx
+      - dodaios/ui/web/chats_routes.py
+      - dodaios/channels/chat_bridge.py
+      - dodaios/state/chat_store.py
+    related:
+      - sessions-and-run-inspector
+      - outputs-and-files
+      - instructions-and-persona
+      - dictation
+    reader_level: beginner
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 2
+    slug: voice-conversations
+    file: docs/product/everyday-use/voice-conversations.md
+    title: Voice Conversations
+    diataxis: explanation
+    summary: Understand how Pipeline and Realtime handle spoken questions, actions, privacy, interruptions, and fallback.
+    authoritative_sources:
+      - dodaios/speech/pipeline.py
+      - dodaios/realtime/session.py
+      - dodaios/browser_voice/session.py
+      - dodaios/core/turn_language.py
+    related:
+      - audio-and-wake-word
+      - dictation
+      - local-ai-providers
+      - sessions-and-run-inspector
+    reader_level: beginner
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 3
+    slug: tasks-and-reminders
+    file: docs/product/everyday-use/tasks-and-reminders.md
+    title: Tasks and Reminders
+    diataxis: howto
+    summary: Schedule recurring and one-off work as routines on your agents, then review, pause or stop each run.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/components/society/card/AgentRoutinesList.tsx
+      - dodaios/society/routines.py
+      - dodaios/ui/web/tasks_routes.py
+      - dodaios/tasks/store.py
+      - dodaios/tasks/scheduler.py
+      - dodaios/tasks/approval_bridge.py
+    related:
+      - jarvis-agents
+      - workflows-and-commands
+      - safety-and-approvals
+    reader_level: beginner
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 4
+    slug: sessions-and-run-inspector
+    file: docs/product/everyday-use/sessions-and-run-inspector.md
+    title: Sessions and Run Inspector
+    diataxis: explanation
+    summary: See the difference between conversation history and a detailed run trace, then use both to understand an answer.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/SessionsView.tsx
+      - dodaios/ui/web/frontend/src/components/agentchat/WorkTrace.tsx
+      - dodaios/ui/web/sessions_routes.py
+      - dodaios/ui/web/diagnostics_routes.py
+      - dodaios/sessions/recorder.py
+    related:
+      - chats
+      - voice-conversations
+      - troubleshooting
+      - privacy-and-local-data
+    reader_level: intermediate
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 5
+    slug: outputs-and-files
+    file: docs/product/everyday-use/outputs-and-files.md
+    title: Outputs and Files
+    diataxis: howto
+    summary: Find generated files, preview them safely, open them in another app, and recover unfinished work when available.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/VisualizationView.tsx
+      - dodaios/ui/web/outputs_routes.py
+      - dodaios/ui/web/downloads_routes.py
+      - dodaios/ui/web/frontend/src/lib/fileActions.ts
+    related:
+      - chats
+      - jarvis-agents
+      - privacy-and-local-data
+    reader_level: beginner
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 6
+    slug: speech-dictionary
+    file: docs/product/everyday-use/speech-dictionary.md
+    title: Speech Dictionary
+    diataxis: howto
+    summary: Teach speech recognition names and specialist words it often mishears, then test the improvement.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/DictionaryView.tsx
+      - dodaios/ui/web/dictionary_routes.py
+      - dodaios/speech/stt_dictionary.py
+    related:
+      - voice-conversations
+      - audio-and-wake-word
+      - languages-and-voices
+    reader_level: beginner
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 7
+    slug: profile-and-contacts
+    file: docs/product/everyday-use/profile-and-contacts.md
+    title: Profile and Contacts
+    diataxis: howto
+    summary: Keep your own preferences and the people you mention organized, and understand how both support more relevant conversations.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/ProfileView.tsx
+      - dodaios/ui/web/frontend/src/views/contacts/ContactsView.tsx
+      - dodaios/ui/web/profile_routes.py
+      - dodaios/ui/web/contacts_routes.py
+      - dodaios/contacts/store.py
+    related:
+      - instructions-and-persona
+      - wiki-and-memory
+      - privacy-and-local-data
+    reader_level: beginner
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 8
+    slug: dictation
+    file: docs/product/everyday-use/dictation.md
+    title: Dictate Into Any App
+    diataxis: howto
+    summary: Turn speech into text in the focused field, recover missed words, and choose what stays local or uses a provider.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/DictationView.tsx
+      - dodaios/ui/web/frontend/src/views/voice/ShortcutsTab.tsx
+      - dodaios/ui/web/frontend/src/views/voice/LanguageTab.tsx
+      - dodaios/ui/web/dictation_routes.py
+      - dodaios/dictation/history.py
+      - dodaios/speech/pipeline.py
+    related:
+      - voice-conversations
+      - speech-dictionary
+      - providers-and-api-keys
+      - privacy-and-local-data
+    reader_level: beginner
+    maturity: stable
+
+  - section: Personalize and connect
+    section_order: 3
+    order: 1
+    slug: providers-and-api-keys
+    file: docs/product/personalize-and-connect/providers-and-api-keys.md
+    title: Providers and API Keys
+    diataxis: howto
+    summary: Connect cloud services or local models to each assistant capability, then verify what is actually ready.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/ApiKeysView.tsx
+      - dodaios/ui/web/provider_routes.py
+      - dodaios/brain/provider_registry.py
+      - dodaios/brain/resolver.py
+      - dodaios/core/config.py
+    related:
+      - local-ai-providers
+      - dictation
+      - credentials-and-secrets
+      - jarvis-agents
+    reader_level: beginner
+    maturity: stable
+
+  - section: Personalize and connect
+    section_order: 3
+    order: 2
+    slug: audio-and-wake-word
+    file: docs/product/personalize-and-connect/audio-and-wake-word.md
+    title: Audio Devices and Wake Word
+    diataxis: howto
+    summary: Choose a microphone and speaker, set a wake phrase, and tune reliable hands-free listening.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/settings/AudioDevicesGroup.tsx
+      - dodaios/ui/web/frontend/src/views/SettingsView.tsx
+      - dodaios/speech/wake_phrase.py
+      - dodaios/plugins/wake/openwakeword_provider.py
+      - docs/local-wakeword/USER-GUIDE-WAKE-WORD.md
+    related:
+      - voice-conversations
+      - speech-dictionary
+      - permissions
+      - troubleshooting
+    reader_level: beginner
+    maturity: stable
+
+  - section: Personalize and connect
+    section_order: 3
+    order: 3
+    slug: languages-and-voices
+    file: docs/product/personalize-and-connect/languages-and-voices.md
+    title: Languages and Voices
+    diataxis: howto
+    summary: Choose reply language, speech language, and speaking voice while keeping every layer of a conversation consistent.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/settings/LanguagesGroup.tsx
+      - dodaios/ui/web/frontend/src/views/settings/RealtimeVoiceGroup.tsx
+      - dodaios/core/turn_language.py
+      - dodaios/plugins/tts/grok_voice_tts.py
+      - dodaios/realtime/factory.py
+    related:
+      - voice-conversations
+      - providers-and-api-keys
+      - audio-and-wake-word
+    reader_level: beginner
+    maturity: stable
+
+  - section: Personalize and connect
+    section_order: 3
+    order: 4
+    slug: settings-and-appearance
+    file: docs/product/personalize-and-connect/settings-and-appearance.md
+    title: Settings and Appearance
+    diataxis: howto
+    summary: Adjust startup, sound, keyboard shortcuts, the Dodaios Bar, overlays, and other everyday behavior.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/SettingsView.tsx
+      - dodaios/ui/web/frontend/src/views/settings/AppSettingsGroup.tsx
+      - dodaios/ui/web/frontend/src/views/settings/OverlayTaskbarGroup.tsx
+      - dodaios/ui/web/frontend/src/views/settings/KeyboardMap.tsx
+      - dodaios/ui/web/settings_routes.py
+    related:
+      - desktop-app-tour
+      - audio-and-wake-word
+      - permissions
+    reader_level: beginner
+    maturity: stable
+
+  - section: Personalize and connect
+    section_order: 3
+    order: 5
+    slug: instructions-and-persona
+    file: docs/product/personalize-and-connect/instructions-and-persona.md
+    title: Instructions and Persona
+    diataxis: howto
+    summary: Shape how your assistant responds without changing providers, memories, or safety rules.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/AssistantProfileView.tsx
+      - dodaios/brain/agent_instructions.py
+      - dodaios/brain/persona_loader.py
+      - dodaios/brain/DODAIOS_PERSONA.md
+      - dodaios/ui/web/frontend/src/views/settings/SystemPromptGroup.tsx
+    related:
+      - chats
+      - profile-and-contacts
+      - safety-and-approvals
+    reader_level: intermediate
+    maturity: stable
+
+  - section: Personalize and connect
+    section_order: 3
+    order: 6
+    slug: phone-calls
+    file: docs/product/personalize-and-connect/phone-calls.md
+    title: Phone Calls
+    diataxis: howto
+    summary: Connect the optional telephony feature, understand inbound and outbound calls, and keep call credentials private.
+    authoritative_sources:
+      - docs/telephony.md
+      - dodaios/ui/web/frontend/src/views/TelephonyView.tsx
+      - dodaios/ui/web/telephony_routes.py
+      - dodaios/telephony/session.py
+      - dodaios/telephony/security.py
+    related:
+      - providers-and-api-keys
+      - credentials-and-secrets
+      - safety-and-approvals
+    reader_level: advanced
+    maturity: stable
+
+  - section: Personalize and connect
+    section_order: 3
+    order: 7
+    slug: local-ai-providers
+    file: docs/product/personalize-and-connect/local-ai-providers.md
+    title: Use Local AI Providers
+    diataxis: howto
+    summary: Run chat and speech on your own machine, or connect a trusted self-hosted server, without making cloud access mandatory.
+    authoritative_sources:
+      - dodaios/ui/web/provider_spec.py
+      - dodaios/ui/web/provider_routes.py
+      - dodaios/speech/local_models.py
+      - dodaios/speech/local_install.py
+      - dodaios/plugins/brain/ollama.py
+      - dodaios/plugins/brain/local_openai.py
+      - dodaios/plugins/stt/nemotron_local.py
+      - dodaios/plugins/tts/piper_local.py
+    related:
+      - providers-and-api-keys
+      - dictation
+      - voice-conversations
+    reader_level: beginner
+    maturity: stable
+
+  - section: Knowledge and sharing
+    section_order: 4
+    order: 1
+    slug: wiki-and-memory
+    file: docs/product/knowledge-and-sharing/wiki-and-memory.md
+    title: Wiki and Memory
+    diataxis: explanation
+    summary: Understand what Dodaios can remember, how the Wiki connects ideas, and how memory supports chats, contacts, and agents.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/MemoryView.tsx
+      - dodaios/ui/web/memory_vault_routes.py
+      - dodaios/memory/wiki/vault_model.py
+      - dodaios/ui/web/wiki_routes.py
+      - dodaios/memory/wiki/integration.py
+      - dodaios/memory/wiki/curator.py
+      - docs/adr/0013-knowledge-wiki-architecture.md
+    related:
+      - profile-and-contacts
+      - connect-obsidian
+      - jarvis-agents
+      - privacy-and-local-data
+    reader_level: intermediate
+    maturity: stable
+
+  - section: Knowledge and sharing
+    section_order: 4
+    order: 2
+    slug: connect-obsidian
+    file: docs/product/knowledge-and-sharing/connect-obsidian.md
+    title: Connect an Obsidian Vault
+    diataxis: howto
+    summary: Use an existing Obsidian vault as a readable knowledge source while keeping file ownership and backups clear.
+    authoritative_sources:
+      - docs/obsidian-setup.md
+      - dodaios/ui/web/frontend/src/components/wiki/ObsidianSetupDialog.tsx
+      - dodaios/ui/web/frontend/src/components/wiki/ObsidianStatus.tsx
+      - dodaios/memory/wiki/vault_root.py
+      - dodaios/memory/wiki/watcher.py
+    related:
+      - wiki-and-memory
+      - privacy-and-local-data
+      - troubleshooting
+    reader_level: advanced
+    maturity: stable
+
+  - section: Knowledge and sharing
+    section_order: 4
+    order: 3
+    slug: jarvis-board
+    file: docs/product/knowledge-and-sharing/dodaios-board.md
+    title: Dodaios Board
+    diataxis: explanation
+    summary: Explore personal activity, achievements, and optional sharing, including what data leaves the device.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/BoardView.tsx
+      - dodaios/ui/web/board_routes.py
+      - dodaios/board/aggregator.py
+      - dodaios/board/sync.py
+      - docs/dodaios-board/ARCHITECTURE.md
+    related:
+      - profile-and-contacts
+      - socials-and-feedback
+      - privacy-and-local-data
+    reader_level: intermediate
+    maturity: experimental
+
+  - section: Knowledge and sharing
+    section_order: 4
+    order: 4
+    slug: socials-and-feedback
+    file: docs/product/knowledge-and-sharing/socials-and-feedback.md
+    title: Social Links and Feedback
+    diataxis: howto
+    summary: Find official community links and share useful feedback without accidentally including private information.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/socials/SocialsView.tsx
+      - dodaios/ui/web/frontend/src/views/feedback/FeedbackView.tsx
+      - dodaios/ui/web/socials_routes.py
+      - dodaios/ui/web/feedback_routes.py
+    related:
+      - profile-and-contacts
+      - jarvis-board
+      - privacy-and-local-data
+    reader_level: beginner
+    maturity: stable
+
+  - section: Knowledge and sharing
+    section_order: 4
+    order: 5
+    slug: find-help-in-the-app
+    file: docs/product/knowledge-and-sharing/find-help-in-the-app.md
+    title: Find Help in the App
+    diataxis: howto
+    summary: Search the built-in documentation, use related-page links, and move between overview, guides, troubleshooting, and reference material.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/DocsView.tsx
+      - dodaios/ui/web/frontend/src/components/docs/DocsOverview.tsx
+      - dodaios/ui/web/frontend/src/components/docs/DocsSearchModal.tsx
+      - dodaios/ui/web/docs_routes.py
+      - dodaios/docs/registry.py
+    related:
+      - desktop-app-tour
+      - troubleshooting
+      - app-command-reference
+    reader_level: beginner
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 1
+    slug: jarvis-agents
+    file: docs/product/extend-and-automate/dodaios-agents.md
+    title: Dodaios-Agents
+    diataxis: explanation
+    summary: Learn when Dodaios delegates longer work, how missions and workers fit together, and how to follow progress and results.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/DodaiosAgentsView.tsx
+      - dodaios/ui/web/missions_routes.py
+      - dodaios/missions/manager.py
+      - dodaios/missions/state_machine.py
+    related:
+      - tasks-and-reminders
+      - outputs-and-files
+      - skills
+      - safety-and-approvals
+    reader_level: intermediate
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 2
+    slug: skills
+    file: docs/product/extend-and-automate/skills.md
+    title: Skills
+    diataxis: explanation
+    summary: Understand how a skill gives Dodaios repeatable instructions, when it runs, and how drafts differ from enabled skills.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/SkillsView.tsx
+      - dodaios/ui/web/skills_routes.py
+      - dodaios/skills/registry.py
+      - dodaios/skills/lifecycle.py
+      - dodaios/skills/runner.py
+    related:
+      - plugins
+      - mcp-connections
+      - jarvis-agents
+      - safety-and-approvals
+    reader_level: intermediate
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 3
+    slug: plugins
+    file: docs/product/extend-and-automate/plugins.md
+    title: Plugins
+    diataxis: explanation
+    summary: Connect packaged capabilities, understand sign-in and health states, and see how plugins can expose tools and skills.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/PluginsView.tsx
+      - dodaios/ui/web/marketplace_routes.py
+      - dodaios/marketplace/plugin_registry.py
+      - dodaios/marketplace/plugin_loader.py
+      - dodaios/marketplace/plugin_mcp.py
+    related:
+      - skills
+      - mcp-connections
+      - providers-and-api-keys
+      - credentials-and-secrets
+    reader_level: intermediate
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 4
+    slug: mcp-connections
+    file: docs/product/extend-and-automate/mcp-connections.md
+    title: MCP Connections
+    diataxis: howto
+    summary: Add and inspect Model Context Protocol servers, then understand how their tools become available safely.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/McpsView.tsx
+      - dodaios/ui/web/mcp_routes.py
+      - dodaios/mcp/registry.py
+      - dodaios/mcp/client.py
+      - mcp.json.example
+    related:
+      - plugins
+      - skills
+      - credentials-and-secrets
+      - safety-and-approvals
+    reader_level: advanced
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 5
+    slug: cli-connections
+    file: docs/product/extend-and-automate/cli-connections.md
+    title: CLI Connections
+    diataxis: howto
+    summary: Let Dodaios discover command-line tools, check their readiness, and use only the capabilities available on the current computer.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/ClisView.tsx
+      - dodaios/ui/web/cli_routes.py
+      - dodaios/clis/registry.py
+      - dodaios/clis/prober.py
+      - dodaios/clis/risk_integration.py
+    related:
+      - skills
+      - workflows-and-commands
+      - cli-reference
+      - safety-and-approvals
+    reader_level: advanced
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 6
+    slug: computer-use
+    file: docs/product/extend-and-automate/computer-use.md
+    title: Computer Use
+    diataxis: howto
+    summary: Understand how Dodaios sees and operates desktop apps, when it asks for confirmation, and how to stop or recover a run.
+    authoritative_sources:
+      - docs/computer-use.md
+      - dodaios/plugins/tool/computer_use_tool.py
+      - dodaios/harness/native_computer_use.py
+      - dodaios/vision/engine.py
+      - dodaios/safety/vision_telemetry.py
+    related:
+      - permissions
+      - safety-and-approvals
+      - jarvis-agents
+      - platform-support
+    reader_level: advanced
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 7
+    slug: workflows-and-commands
+    file: docs/product/extend-and-automate/workflows-and-commands.md
+    title: Workflows and App Commands
+    diataxis: explanation
+    summary: See how reusable workflows, natural-language actions, REST routes, and CLI commands connect to the same underlying capability.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/WorkflowsView.tsx
+      - dodaios/ui/web/workflows_routes.py
+      - dodaios/workflows/runner.py
+      - dodaios/commands/registry.py
+      - docs/commands-reference.md
+    related:
+      - tasks-and-reminders
+      - skills
+      - cli-reference
+      - app-command-reference
+    reader_level: advanced
+    maturity: experimental
+    source_policy: Link to docs/commands-reference.md; do not copy its generated command catalog.
+
+  - section: Extend and automate
+    section_order: 5
+    order: 8
+    slug: agentic-ide
+    file: docs/product/extend-and-automate/agentic-ide.md
+    title: Agentic IDE
+    diataxis: howto
+    summary: Open a project workspace, coordinate coding agents in live terminal panes, and keep every instruction and result visible.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/AgenticIdeView.tsx
+      - dodaios/ui/web/frontend/src/components/agentic/AgenticGrid.tsx
+      - dodaios/ui/web/agentic_ide_routes.py
+      - dodaios/agentic_ide/session.py
+      - dodaios/agentic_ide/resume_store.py
+      - dodaios/agentic_ide/notifications.py
+      - dodaios/workspace/trust.py
+    related:
+      - cli-connections
+      - jarvis-agents
+      - cli-reference
+      - safety-and-approvals
+    reader_level: intermediate
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 9
+    slug: screen-context
+    file: docs/product/extend-and-automate/screen-context.md
+    title: Screen Context
+    diataxis: howto
+    summary: Let your assistant inspect one requested screen or window with visible capture, privacy filtering, and short-lived memory.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/AppshotsView.tsx
+      - dodaios/ui/web/screen_context_routes.py
+      - dodaios/screen_context/service.py
+      - dodaios/screen_context/intent.py
+      - dodaios/screen_context/targeting.py
+      - dodaios/screen_context/redaction.py
+      - dodaios/screen_context/ports.py
+    related:
+      - computer-use
+      - permissions
+      - providers-and-api-keys
+      - cli-reference
+    reader_level: beginner
+    maturity: stable
+
+  - section: Extend and automate
+    section_order: 5
+    order: 10
+    slug: connect-home-assistant
+    file: docs/product/extend-and-automate/connect-home-assistant.md
+    title: Connect Home Assistant
+    diataxis: howto
+    summary: Connect a self-hosted Home Assistant, protect its long-lived token, and use approved smart-home reads and actions safely.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/PluginsView.tsx
+      - dodaios/ui/web/marketplace_routes.py
+      - dodaios/marketplace/seed_catalog.json
+      - dodaios/marketplace/usage_cards/home_assistant.md
+      - dodaios/plugins/tool/home_assistant_rest.py
+    related:
+      - plugins
+      - skills
+      - workflows-and-commands
+      - credentials-and-secrets
+    reader_level: beginner
+    maturity: stable
+
+  - section: Privacy, safety, and support
+    section_order: 6
+    order: 1
+    slug: privacy-and-local-data
+    file: docs/product/privacy-safety-and-support/privacy-and-local-data.md
+    title: Privacy and Local Data
+    diataxis: explanation
+    summary: Learn what Dodaios stores locally, what may be sent to a connected service, and how each optional feature changes that boundary.
+    authoritative_sources:
+      - AGENTS.md
+      - dodaios/core/paths.py
+      - dodaios/core/redact.py
+      - dodaios/state/chat_store.py
+      - dodaios/memory/wiki/secret_guard.py
+    related:
+      - credentials-and-secrets
+      - permissions
+      - wiki-and-memory
+      - jarvis-board
+    reader_level: beginner
+    maturity: stable
+
+  - section: Privacy, safety, and support
+    section_order: 6
+    order: 2
+    slug: credentials-and-secrets
+    file: docs/product/privacy-safety-and-support/credentials-and-secrets.md
+    title: Credentials and Secrets
+    diataxis: explanation
+    summary: Understand how credentials are entered, stored, redacted, replaced, and kept out of conversations and documentation.
+    authoritative_sources:
+      - dodaios/core/config.py
+      - dodaios/core/control_key.py
+      - dodaios/core/redact.py
+      - dodaios/marketplace/token_store.py
+      - dodaios/memory/wiki/secret_guard.py
+    related:
+      - providers-and-api-keys
+      - privacy-and-local-data
+      - control-key
+      - troubleshooting
+    reader_level: beginner
+    maturity: stable
+
+  - section: Privacy, safety, and support
+    section_order: 6
+    order: 3
+    slug: permissions
+    file: docs/product/privacy-safety-and-support/permissions.md
+    title: App Permissions
+    diataxis: howto
+    summary: See when macOS asks for microphone, screen, accessibility, and input access, and how to change an answer later.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/lib/permissionToast.ts
+      - dodaios/ui/web/frontend/src/i18n/locales/en.json
+      - dodaios/cli_ctl/commands/permissions.py
+      - dodaios/core/macos_privacy_strings.py
+      - dodaios/ui/web/permissions_routes.py
+      - dodaios/platform/permissions.py
+      - dodaios/platform/permission_service.py
+      - dodaios/platform/capabilities.py
+    related:
+      - first-run-setup
+      - audio-and-wake-word
+      - computer-use
+      - privacy-and-local-data
+    reader_level: beginner
+    maturity: stable
+
+  - section: Privacy, safety, and support
+    section_order: 6
+    order: 4
+    slug: safety-and-approvals
+    file: docs/product/privacy-safety-and-support/safety-and-approvals.md
+    title: Safety and Approvals
+    diataxis: explanation
+    summary: Learn why some actions run immediately, some require confirmation, and some are blocked before they can affect your computer or accounts.
+    authoritative_sources:
+      - AGENTS.md
+      - dodaios/safety/risk_tier.py
+      - dodaios/safety/approval.py
+      - dodaios/safety/tool_executor.py
+      - dodaios/missions/tool_approvals.py
+    related:
+      - computer-use
+      - tasks-and-reminders
+      - skills
+      - privacy-and-local-data
+    reader_level: beginner
+    maturity: stable
+
+  - section: Privacy, safety, and support
+    section_order: 6
+    order: 5
+    slug: troubleshooting
+    file: docs/product/privacy-safety-and-support/troubleshooting.md
+    title: Troubleshooting
+    diataxis: troubleshooting
+    summary: Diagnose startup, connection, provider, voice, permission, and extension problems using safe checks before changing configuration.
+    authoritative_sources:
+      - docs/README-desktop-black-screen.md
+      - dodaios/diagnostics/doctor.py
+      - dodaios/ui/web/diagnostics_routes.py
+    related:
+      - install-dodaios
+      - providers-and-api-keys
+      - audio-and-wake-word
+      - platform-support
+    reader_level: beginner
+    maturity: stable
+
+  - section: Privacy, safety, and support
+    section_order: 6
+    order: 6
+    slug: control-key
+    file: docs/product/privacy-safety-and-support/control-key.md
+    title: "Your Assistant's Key (Control Key)"
+    diataxis: howto
+    summary: Find, use, replace, and regenerate the one key that unlocks Dodaios in a browser and authenticates local agents.
+    authoritative_sources:
+      - dodaios/core/control_key.py
+      - dodaios/ui/web/control_routes.py
+      - dodaios/ui/web/surface_security.py
+      - dodaios/ui/web/frontend/src/views/settings/DodaiosApiGroup.tsx
+      - dodaios/ui/web/frontend/src/components/AuthGate.tsx
+    related:
+      - credentials-and-secrets
+      - control-api-reference
+      - providers-and-api-keys
+      - troubleshooting
+    reader_level: beginner
+    maturity: stable
+
+  - section: Reference
+    section_order: 7
+    order: 1
+    slug: cli-reference
+    file: docs/product/reference/cli-reference.md
+    title: CLI Reference
+    diataxis: reference
+    summary: Find the supported command-line surfaces, authentication options, common flags, and the generated command catalog.
+    authoritative_sources:
+      - docs/dodaios-cli.md
+      - docs/dodaios-cli-reference.md
+      - docs/reference/dodaios-cli.md
+      - dodaios/cli_ctl
+      - scripts/ci/gen_cli_reference.py
+    related:
+      - cli-connections
+      - control-api-reference
+      - app-command-reference
+      - configuration-reference
+    reader_level: advanced
+    maturity: stable
+    source_policy: Link to docs/dodaios-cli-reference.md; do not copy or hand-edit its generated command catalog.
+
+  - section: Reference
+    section_order: 7
+    order: 2
+    slug: control-api-reference
+    file: docs/product/reference/control-api-reference.md
+    title: Control API Reference
+    diataxis: reference
+    summary: Understand API authentication, discovery, error behavior, and how REST operations map to CLI and in-app actions.
+    authoritative_sources:
+      - docs/dodaios-control-api.md
+      - dodaios/ui/web/server.py
+      - dodaios/ui/web/control_routes.py
+      - dodaios/ui/web/surface_security.py
+      - dodaios/core/control_key.py
+    related:
+      - cli-reference
+      - app-command-reference
+      - credentials-and-secrets
+      - architecture
+    reader_level: advanced
+    maturity: stable
+
+  - section: Reference
+    section_order: 7
+    order: 3
+    slug: configuration-reference
+    file: docs/product/reference/configuration-reference.md
+    title: Configuration Reference
+    diataxis: reference
+    summary: Look up supported settings, defaults, environment overrides, and safe configuration-write behavior.
+    authoritative_sources:
+      - dodaios/core/config.py
+      - dodaios/core/config_writer.py
+      - pyproject.toml
+      - dodaios/ui/web/settings_routes.py
+      - dodaios/ui/web/provider_spec.py
+    related:
+      - settings-and-appearance
+      - providers-and-api-keys
+      - credentials-and-secrets
+      - platform-support
+    reader_level: advanced
+    maturity: stable
+
+  - section: Reference
+    section_order: 7
+    order: 4
+    slug: app-command-reference
+    file: docs/product/reference/app-command-reference.md
+    title: App Command Reference
+    diataxis: reference
+    summary: Learn how to browse the canonical app-command catalog shared by voice, chat, desktop, CLI, and REST surfaces.
+    authoritative_sources:
+      - docs/commands-reference.md
+      - dodaios/commands/registry.py
+      - dodaios/ui/web/commands_routes.py
+      - scripts/ci/gen_commands_reference.py
+    related:
+      - workflows-and-commands
+      - cli-reference
+      - control-api-reference
+    reader_level: advanced
+    maturity: stable
+    source_policy: Link to docs/commands-reference.md; never duplicate or hand-maintain the generated entries.
+
+  - section: Reference
+    section_order: 7
+    order: 5
+    slug: architecture
+    file: docs/product/reference/architecture.md
+    title: How Dodaios Fits Together
+    diataxis: explanation
+    summary: Follow a request from the user interface through providers, tools, safety checks, events, agents, memory, and output.
+    authoritative_sources:
+      - docs/architecture-overview.md
+      - dodaios/core/protocols.py
+      - dodaios/core/bus.py
+      - dodaios/brain/factory.py
+      - pyproject.toml
+    related:
+      - providers-and-api-keys
+      - jarvis-agents
+      - safety-and-approvals
+      - control-api-reference
+    reader_level: advanced
+    maturity: stable
+
+  - section: Reference
+    section_order: 7
+    order: 6
+    slug: platform-support
+    file: docs/product/reference/platform-support.md
+    title: Platform Support and Requirements
+    diataxis: reference
+    summary: Check operating-system support, optional hardware and audio capabilities, headless behavior, and graceful feature fallbacks.
+    authoritative_sources:
+      - pyproject.toml
+      - install/README.md
+      - install/install.ps1
+      - install/install.sh
+      - dodaios/platform/capabilities.py
+    related:
+      - install-dodaios
+      - permissions
+      - configuration-reference
+      - troubleshooting
+    reader_level: advanced
+    maturity: stable
+
+  - section: Everyday use
+    section_order: 2
+    order: 10
+    slug: costs
+    file: docs/product/everyday-use/costs.md
+    title: Spend & Tokens
+    diataxis: howto
+    summary: Understand recorded usage, compare providers, and trace spending to individual runs.
+    authoritative_sources:
+      - dodaios/ui/web/frontend/src/views/CostsView.tsx
+      - dodaios/ui/web/costs_routes.py
+    related:
+      - tasks-and-reminders
+      - jarvis-agents
+      - providers-and-api-keys
+    reader_level: beginner
+    maturity: stable
